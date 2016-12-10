@@ -10,7 +10,7 @@
 
 #### then run: 
 
-`$ bund install --path .bundle`
+`$ bundle install --path .bundle`
 
 ### To run the specs, type:
 
