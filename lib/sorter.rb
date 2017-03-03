@@ -1,26 +1,32 @@
 class Sorter
   def self.sort_ascending(array)
+    copy_array = []
+    array.each do |e|
+      copy_array.push(e)
+    end
+    
     sorted_array = []
-    length = _length(array)
-    while length > 0
-      min = _minimum(array)
-      index = _index(array, min)
+    array.each do |e|
+      min = _minimum(copy_array)
+      index = _index(copy_array, min)
       sorted_array.push(min)
-      length = length - 1
-      array.delete_at(index)
+      copy_array.delete_at(index)
     end
     return sorted_array
   end
 
   def self.sort_descending(array)
+    copy_array = []
+    array.each do |e|
+      copy_array.push(e)
+    end
+
     sorted_array = []
-    length = _length(array)
-    while length > 0
-      max = _maximum(array)
-      index = _index(array, max)
+    array.each do |e|
+      max = _maximum(copy_array)
+      index = _index(copy_array, max)
       sorted_array.push(max)
-      length = length - 1
-      array.delete_at(index)
+      copy_array.delete_at(index)
     end
     return sorted_array
   end
@@ -47,14 +53,6 @@ class Sorter
     b
   end
 
-  def self._length(array)
-    length = 0
-    array.each do |e|
-      length = length + 1
-    end
-    length
-  end
-
   def self._index(array, value)
     index = 0
     array.each do |e|
@@ -64,6 +62,5 @@ class Sorter
         index = index + 1
       end
     end
-    index
   end
 end
